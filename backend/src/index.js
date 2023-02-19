@@ -5,9 +5,13 @@ mongoose.set('strictQuery', false);
 require("dotenv").config()
 const route = require ("./route")
 
-app.use(express.json())
+const multer=require('multer')
 
-mongoose.connect(process.env.DB, {useNewUrlParser : true})
+app.use(express.json())
+app.use(multer().any())
+
+
+mongoose.connect("mongodb+srv://Rohitsch:S*Crohit16@cluster0.31aen.mongodb.net/pallavi", {useNewUrlParser : true})
 .then(() => {
     console.log("MongoDB is Connected")
 })
